@@ -1,13 +1,13 @@
 package com.kovintharajan.studentmanagement.repository;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
 import com.kovintharajan.studentmanagement.model.Student;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @Repository
@@ -37,5 +37,35 @@ public class StudentRepository {
             return student;
         }
         return null;
+    }
+
+    public List<Student> getAllStudents() throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        List<Student> studentList = new ArrayList<>();
+        CollectionReference students = db.collection(COLLECTION_NAME);
+        ApiFuture<QuerySnapshot> querySnapshot = students.get();
+
+        for (QueryDocumentSnapshot document : querySnapshot.get().getDocuments()) {
+            Student student = document.toObject(Student.class);
+            student.setId(document.getId());
+            studentList.add(student);
+        }
+        return studentList;
+    }
+
+    public Student updateStudent(Student student) throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        DocumentReference docRef = db.collection(COLLECTION_NAME).document(student.getId());
+        ApiFuture<WriteResult> future = docRef.set(student);
+        future.get();
+        return student;
+    }
+
+    public String deleteStudentById(String id) throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        DocumentReference docRef = db.collection(COLLECTION_NAME).document(id);
+        ApiFuture<WriteResult> future = docRef.delete();
+        future.get();
+        return "Successfully deleted student with ID: " + id;
     }
 }
