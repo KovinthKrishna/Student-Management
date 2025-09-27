@@ -56,16 +56,14 @@ public class StudentRepository {
     public Student updateStudent(Student student) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();
         DocumentReference docRef = db.collection(COLLECTION_NAME).document(student.getId());
-        ApiFuture<WriteResult> future = docRef.set(student);
-        future.get();
+        docRef.set(student).get();
         return student;
     }
 
     public String deleteStudentById(String id) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();
         DocumentReference docRef = db.collection(COLLECTION_NAME).document(id);
-        ApiFuture<WriteResult> future = docRef.delete();
-        future.get();
+        docRef.delete().get();
         return "Successfully deleted student with ID: " + id;
     }
 }
