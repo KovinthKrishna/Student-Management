@@ -88,3 +88,10 @@ The application will start and be accessible at `http://localhost:8080`.
 | `GET`    | `/course/{courseId}` | Retrieves a single course.  |
 | `PUT`    | `/course`            | Updates an existing course. |
 | `DELETE` | `/course/{courseId}` | Deletes a course.           |
+
+## Postman Collection
+
+For easy testing, a Postman collection has been included in the root of the project. You can import the
+`Student_Management_API.postman_collection.json` file into Postman to get all the API requests set up.
+
+Sample requests and responses are included in `Sample requests and responses.pdf`

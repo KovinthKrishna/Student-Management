@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "6f60e9a3-9c22-46a9-825e-6b752225a381",
+		"name": "Student Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48831360",
+		"_collection_link": "https://kovinthkrishna-4177724.postman.co/workspace/fa2a69f5-3820-42e4-85cc-dbad64dad5b2/collection/48831360-6f60e9a3-9c22-46a9-825e-6b752225a381?action=share&source=collection_link&creator=48831360"
+	},
+	"item": [
+		{
+			"name": "Create Course",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Introduction to Business Management\",\r\n    \"fee\": 375.50,\r\n    \"lecturerId\": \"lec_18B\",\r\n    \"lecturerName\": \"Prof. Samuel Chen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/course",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Course",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/course/tDFlAJJ6MfmufIv0n4oV",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course",
+						"tDFlAJJ6MfmufIv0n4oV"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Courses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Course",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"YIekKaBMl94xQ5nKD9R5\",\r\n    \"name\": \"Introduction to Business Management\",\r\n    \"fee\": 325.5,\r\n    \"lecturerId\": \"lec_18C\",\r\n    \"lecturerName\": \"Prof. Amal Chen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/course",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Course",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/course/tDFlAJJ6MfmufIv0n4oV",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course",
+						"tDFlAJJ6MfmufIv0n4oV"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Mr.\",\r\n    \"name\": \"David Silva\",\r\n    \"address\": \"8 Beach Street\",\r\n    \"city\": \"Galle\",\r\n    \"courseId\": \"YIekKaBMl94xQ5nKD9R5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/student",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/student/g4vAY2sFpwlTpE2rJ0Kw",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"student",
+						"g4vAY2sFpwlTpE2rJ0Kw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/students",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"gPX8ZGzHIWj9Rbeoq1Cb\",\r\n    \"title\": \"Ms.\",\r\n    \"name\": \"Fatima Zahra\",\r\n    \"address\": \"21 Main street\",\r\n    \"city\": \"Jaffna\",\r\n    \"courseId\": \"YIekKaBMl94xQ5nKD9R5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/student",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Student",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/student/jZNhuAj3gPgb9ADxQUb2",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"student",
+						"jZNhuAj3gPgb9ADxQUb2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
